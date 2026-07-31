@@ -1,0 +1,25 @@
+# Kernbibliotheken
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+
+# Visualisierung
+matplotlib>=3.7
+seaborn>=0.12
+
+# Machine Learning
+scikit-learn>=1.3
+
+# NLP
+spacy>=3.7
+# Sprachmodell nach der Installation laden:
+#   python -m spacy download en_core_web_sm
+
+# Fortschrittsanzeige
+tqdm>=4.65
+
+# Notebook-Umgebung
+jupyterlab>=4.0
+
+# Optional: LLM-Methode (lokal via Ollama-CLI, https://ollama.com)
+# ollama>=0.3

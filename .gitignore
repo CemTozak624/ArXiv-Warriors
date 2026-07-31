@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+~$*
+.vscode/
+.idea/
+
+# Große Rohdaten NICHT committen (siehe data/README.md für den Download-Link)
+data/full/
+data/team4_parsedTables/
+*.xml
+data/**/*.json
+!data/sample/*.json
+
+# Ergebnis-Zwischenstände (die finalen results-CSVs bewusst behalten)
+*.tmp
