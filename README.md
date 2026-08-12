@@ -61,39 +61,57 @@ wiedergegeben, **31 %** vollständig gespiegelt. Tabellen sind damit überwiegen
 Informationsträger. Regex und spaCy liefern nahezu identische mittlere Overlap-Scores
 (≈ 0,16 bzw. ≈ 0,15), was für die Robustheit der Messung spricht.
 
+> **Vollständige Ergebnisse, Abbildungen und Interpretation** finden sich im **Projektbericht**
+> und in der **Abschlusspräsentation** (separat abgegeben, nicht Teil dieses Repos). Dieses
+> Repository enthält bewusst nur den **Code** zur Reproduktion – die obige Tabelle ist eine
+> Kurzfassung der Kernergebnisse.
+
 ## Repo-Struktur
 
+Der Code ist bewusst in **zwei Ordner** getrennt, damit die finale Abgabe sofort erkennbar ist:
+
 ```
-biorxiv-tables-vs-text/
-├── notebooks/
-│   ├── 01_regex.ipynb                  # Methode A – Regex-Overlap (Baseline)
-│   ├── 02_spacy.ipynb                  # Methode B – spaCy NER + Dependency
-│   ├── 03_llm_ollama.ipynb             # Methode C – LLM (verworfen)
-│   ├── 04_visualisierung.ipynb         # Methodenvergleich, Verteilungen
-│   └── 05_pipeline_final_kaskade.ipynb # FINALE regelbasierte Kaskade (Auswertung)
-├── archive/                            # frühere Entwicklungsstände (optional, dokumentiert den Weg)
+ArXiv-Warriors/
+├── final/                              # ← DIE ABGABE: nur die finale Pipeline
+│   └── 05_pipeline_final_kaskade.ipynb #   Regelbasierte Kaskade (Regex → spaCy), LLM aus
+│
+├── archive/                           # ← Entwicklungsweg in Reihenfolge (alle Vorversionen)
+│   ├── 00_erstercode_prototyp.ipynb   #   1. Erster Versuch / Prototyp (Forschungsfrage)
+│   ├── 01_regex.ipynb                 #   2. Methode A – Regex-Overlap (Baseline)
+│   ├── 02_spacy.ipynb                 #   3. Methode B – spaCy NER + Dependency
+│   ├── 03_llm_ollama.ipynb            #   4. Methode C – LLM via Ollama (verworfen)
+│   ├── 04_visualisierung.ipynb        #   5. Methodenvergleich & Verteilungen
+│   ├── improved_pipeline.ipynb        #   6. Integrierte Pipeline v1 (Kaskade + Cohen's κ)
+│   ├── optimized_pipeline.ipynb       #   7. Pipeline v2 mit Random Forest (verworfen)
+│   └── pipeline.py                     #   Skript-Version von improved_pipeline
+│
 ├── data/
-│   ├── annotation/alle_annotiert.csv   # 386 handannotierte Tabellen (Ground Truth)
-│   ├── sample/                         # 3–5 Beispiel-JSONs (Eingabe-Struktur)
-│   └── README.md                       # Datenbeschreibung + Link zum Volldatensatz
-├── results/
-│   └── figures/                        # exportierte Abbildungen
-├── docs/                               # Projektbericht (PDF)
+│   ├── annotation/alle_annotiert.csv  # 386 handannotierte Tabellen (Ground Truth)
+│   └── README.md                      # Datenbeschreibung + Link zum Volldatensatz
 ├── requirements.txt
 └── README.md
 ```
 
-> **Wichtig – finale Version:** `notebooks/05_pipeline_final_kaskade.ipynb` ist die
-> tatsächlich abgegebene Pipeline (regelbasierte Kaskade, **ohne** Random Forest, LLM
-> deaktiviert). Frühere `pipeline_v3_*`- und `optimized_*`-Stände unter `archive/` sind nur zur
-> Dokumentation des Entwicklungswegs enthalten – nicht die finale Auswertung.
+Chronologie der Entwicklung: **erster Versuch (nummerierte Notebooks) → Annotation
+(`data/annotation/`) → `improved_pipeline` → `optimized_pipeline` (Random Forest) → finale
+Kaskade in `final/`.**
+
+> **Hinweis zum Umfang:** Dieses Repo ist bewusst schlank und auf den **Code** fokussiert.
+> Ausführliche Ergebnisse, Grafiken und die Interpretation liegen im **Projektbericht** und in
+> der **Abschlusspräsentation** (separat abgegeben). Wer die Ergebnisse ansehen möchte, schaut
+> dort – GitHub dient hier primär der Nachvollziehbarkeit des Codes.
+
+> **Wichtig – finale Version:** `final/05_pipeline_final_kaskade.ipynb` ist die tatsächlich
+> abgegebene Pipeline (regelbasierte Kaskade, **ohne** Random Forest, LLM deaktiviert). Alles
+> unter `archive/` dokumentiert nur den Entwicklungsweg (erste Versuche, ML-Ansätze) – **nicht**
+> die finale Auswertung.
 
 ## Installation & Ausführung
 
 ```bash
 # 1. Repository klonen
-git clone https://github.com/<USERNAME>/biorxiv-tables-vs-text.git
-cd biorxiv-tables-vs-text
+git clone https://github.com/CemTozak624/ArXiv-Warriors.git
+cd ArXiv-Warriors
 
 # 2. Abhängigkeiten installieren (virtuelle Umgebung empfohlen)
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
@@ -102,7 +120,8 @@ pip install -r requirements.txt
 # 3. spaCy-Sprachmodell laden
 python -m spacy download en_core_web_sm
 
-# 4. Notebooks in der Reihenfolge 01 -> 05 ausführen
+# 4. Finale Auswertung reproduzieren:  final/05_pipeline_final_kaskade.ipynb ausführen
+#    Entwicklungsweg nachvollziehen:   Notebooks in archive/ (00 -> optimized)
 jupyter lab
 ```
 
