@@ -9,16 +9,19 @@ Fließtext) sowie die geparsten Tabellen (Zellinhalte, Caption, Zeilen/Spalten).
 - **Testset (Entwicklung):** 499 Dokumente, davon 386 Tabellen von Hand annotiert.
 - **Echte Daten (finale Auswertung):** 3.810 Dokumente mit insgesamt 10.131 geparsten Tabellen.
 
-Der **Volldatensatz** ist wegen seiner Größe (und weil die Tabellen von einer anderen Gruppe
-geparst wurden) nicht Teil dieses Repositories.
+Der **Volldatensatz** ist wegen seiner Größe nicht Teil dieses Repositories; er wurde von den
+Dozierenden bereitgestellt.
 
-> **Download Volldatensatz:** `<HIER SCIEBO-/ZENODO-LINK EINFÜGEN>`
+> **Bezug des Volldatensatzes:** Der Volldatensatz (`team4_parsedTables.zip`) wurde von den
+> Dozierenden über einen internen, zugangsbeschränkten Sciebo-Ordner bereitgestellt und ist
+> nicht öffentlich verlinkbar; er ist daher nicht Teil dieses Repositories.
 >
-> Nach dem Download entpacken nach `data/full/` (Ordner wird von `.gitignore` ausgeschlossen).
+> Nach dem Erhalt entpacken nach `data/full/` (Ordner wird von `.gitignore` ausgeschlossen).
 > Die Notebooks erwarten die JSON-Dateien standardmäßig in diesem Ordner – ggf. den
 > `DATA_DIR`-Pfad im Notebook anpassen.
 
-Zum Ausprobieren ohne den Volldatensatz liegen einige Beispieldateien in [`sample/`](sample/).
+Ohne den Volldatensatz lässt sich die Annotationsauswertung direkt auf der mitgelieferten
+Datei [`annotation/alle_annotiert.csv`](annotation/alle_annotiert.csv) nachvollziehen.
 
 ## Ground Truth: `annotation/alle_annotiert.csv`
 

@@ -87,7 +87,7 @@ ArXiv-Warriors/
 │
 ├── data/
 │   ├── annotation/alle_annotiert.csv  # 386 handannotierte Tabellen (Ground Truth)
-│   └── README.md                      # Datenbeschreibung + Link zum Volldatensatz
+│   └── README.md                      # Datenbeschreibung + Bezug des Volldatensatzes
 ├── requirements.txt
 └── README.md
 ```
@@ -125,8 +125,11 @@ python -m spacy download en_core_web_sm
 jupyter lab
 ```
 
-Der Volldatensatz ist nicht im Repo enthalten (Größe) – siehe [`data/README.md`](data/README.md)
-für den Download-Link. Für einen schnellen Testlauf genügen die Beispiel-JSONs in `data/sample/`.
+Der Volldatensatz ist nicht Teil des Repos (Größe); er wurde von den Dozierenden über einen
+internen, zugangsbeschränkten Sciebo-Ordner bereitgestellt – siehe
+[`data/README.md`](data/README.md) für den Bezugsweg. Als reproduzierbare Datengrundlage
+liegen im Repo die 386 handannotierten Tabellen unter
+[`data/annotation/alle_annotiert.csv`](data/annotation/alle_annotiert.csv).
 
 ## Limitationen
 
@@ -143,11 +146,14 @@ für den Download-Link. Für einen schnellen Testlauf genügen die Beispiel-JSON
 
 ## Autoren & Beitrag
 
-| Teammitglied | Beitrag |
+Hauptverantwortung je Bereich (H); die vollständige Beitragsmatrix mit Haupt- und
+Mitarbeit steht im Projektbericht (Kap. 6).
+
+| Teammitglied | Hauptverantwortung |
 |---|---|
-| Cem İlhan | *(wird ergänzt)* |
-| Mogens Rosiny | *(wird ergänzt)* |
-| Robin Klinkhammer | *(wird ergänzt)* |
+| Cem İlhan Tozak | Einleitung, Motivation & Related Work · Mess-Methoden (Regex, spaCy, LLM) · Bericht-Redaktion & Code-Repository |
+| Mogens Rosiny | Datengrundlage & Datenaufbereitung · finale Kaskade & Evaluation · Visualisierung & Methodenvergleich |
+| Robin Klinkhammer | Manuelle Annotation (Ground Truth) · finale Kaskade & Evaluation · Diskussion, Fazit & Limitationen |
 
 ## Lizenz
 
